@@ -1,0 +1,6 @@
+
+var DISCIPLINE = {
+    DISCIPLINE_UNKNOWN: "unknown",
+    DISCIPLINE_ACROBATICS: "acrobial",
+    DISCIPLINE_TRICKS: "trix"
+}

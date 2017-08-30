@@ -1,0 +1,116 @@
+#version 330
+layout(location=0) in vec3 position;
+layout(location=1) in vec3 color;
+layout(location=3) in vec3 normal;
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
+uniform mat4 normalMatrix;
+
+struct PointLight{
+     vec3 position;
+     float constant;
+     float linear;
+     float quadratic;
+
+     bool directional;
+
+     vec3 ambient;
+     vec3 diffuse;
+     vec3 specular;
+};
+
+#define MAX_POINT_LIGHTS 24
+#define LESS_THAN_PERCENT 0.1f
+
+uniform vec3 viewPos;
+uniform int amountOfLights;
+uniform PointLight pLights[MAX_POINT_LIGHTS];
+
+out vec4 vColor;
+out vec3 norm;
+out vec3 worldPos;
+out vec3 lightPos;
+flat out int aol;
+
+vec3 calcPointLight(PointLight l, vec3 n, vec3 f, vec3 v){
+     vec3 lightDir = normalize(l.position - f);
+     
+     float diff = max(dot(n, lightDir), 0.0);
+     vec3 reflectDir = normalize(reflect(-lightDir, n));
+     float spec = pow(max(dot(v, reflectDir), 0.0), 1.0);
+     float distance = length(l.position - f);
+     float attenuation = 1.0 / (l.constant + l.linear * distance + l.quadratic * (distance*distance));
+
+     vec3 ambient = l.ambient * color;
+     vec3 diffuse = l.diffuse * diff * color;
+     vec3 specular = l.specular * spec * color;
+
+     ambient *= attenuation;
+     diffuse *= attenuation;
+     specular *= attenuation;
+     return (ambient + diffuse);
+}
+
+vec3 calcDirLight(PointLight light, vec3 n, vec3 viewDir)
+{
+    vec3 lightDir = normalize(-light.position);
+    // Diffuse shading
+    float diff = max(dot(n, lightDir), 0.0);
+    // Specular shading
+    vec3 reflectDir = reflect(-lightDir, n);
+    float spec = pow(max(dot(viewDir, reflectDir), 0.0), 1);
+    // Combine results
+    vec3 ambient  = light.ambient  * color;
+    vec3 diffuse  = light.diffuse  * diff * color;
+    vec3 specular = light.specular * spec * color;
+    return (ambient + diffuse + specular);
+}
+
+void main(void)
+{
+     gl_Position = projection * view *  model * vec4(position, 1.0);
+     vColor = vec4(0.0,0.0,0.0, 1.0);
+     norm = (model * vec4(normal, 0.0)).xyz;
+     worldPos = (model * vec4(position, 1.0)).xyz;
+
+     vec3 fragPos = vec3(model * vec4(position, 1.0));
+
+     aol = amountOfLights;
+     /* uncomment for back face culling
+     if(dot(normalize(viewPos - fragPos), normalize(norm)) <= 0)
+          aol = -1;*/
+
+
+
+     if(aol > 0){
+          //float curDist = distance(pLights[0].position, worldPos);
+          //lightPos = pLights[0].position;
+          for(int i=0;i<aol;i++)
+          {
+               /*float dist = distance(pLights[i].position, worldPos);
+               if(curDist > dist)
+               {
+                    lightPos = pLights[i].position;
+                    curDist = dist;
+               }*/
+               if(pLights[i].directional == true)
+                    vColor += vec4(calcDirLight(pLights[i], normalize(norm), normalize(viewPos - fragPos)), 1.0);
+               else
+                    vColor += vec4(calcPointLight(pLights[i], normalize(norm), fragPos, normalize(viewPos - fragPos)), 1.0);
+          }
+     }else
+          vColor = vec4(color, 1.0);
+     if(vColor.x > color.x)
+          vColor[0] = color.x;
+     if(vColor.y > color.y)
+          vColor[1] = color.y;
+     if(vColor.z > color.z)
+          vColor[2] = color.z;
+     if(vColor.x < LESS_THAN_PERCENT * color.x)
+          vColor[0] = LESS_THAN_PERCENT * color.x;
+     if(vColor.y < LESS_THAN_PERCENT * color.y)
+          vColor[1] = LESS_THAN_PERCENT * color.y;
+     if(vColor.z < LESS_THAN_PERCENT * color.z)
+          vColor[2] = LESS_THAN_PERCENT * color.z;
+}

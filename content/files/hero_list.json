@@ -1,0 +1,104 @@
+{
+    "heroCount": 2,
+    "heroNameLink":{
+        "Robin": "HERO_ROBIN",
+        "Jester": "HERO_JESTER",
+        "DEVHERO": "HERO_DEV00"
+    },
+    "heroes":{
+        "HERO_ROBIN":{
+            "name": "Robin",
+
+            "image":{
+                "name": "archer",
+                "file": "content/images/characters/robin00.png",
+                "width": 32,
+                "height": 32,
+                "spritesheet": 1
+            },
+
+            "maxHealth": 100,
+            "maxResource": 100,
+            "regenerationSpeed": 5,
+            "moveSpeed": 100,
+            "moveRange": 4,
+
+            "discipline": "DISCIPLINE_ACROBATICS",
+
+            "default_deck": [
+                "CARD_MOVE",
+                "HERO_ROBIN_RANGED",
+                "HERO_ROBIN_RANGED2",
+                "HERO_ROBIN_MELEE",
+                "HERO_ROBIN_DEATHBREATH"
+            ]
+        },
+        "HERO_JESTER":{
+            "name": "Jester",
+
+            "image":{
+                "name": "jester",
+                "file": "content/images/characters/jester01.png",
+                "width": 640,
+                "height": 32,
+                "spritesheet": 32,
+
+                "animation":{
+                    "speed": 0.3,
+                    "maxFrames": 32
+                }
+            },
+
+            "maxHealth": 100,
+            "maxResource": 100,
+            "regenerationSpeed": 5,
+            "moveSpeed": 100,
+            "moveRange": 4,
+
+            "discipline": "DISCIPLINE_TRICKS",
+
+            "default_deck": [
+                "CARD_MOVE",
+                "HERO_ROBIN_RANGED",
+                "HERO_ROBIN_RANGED2",
+                "HERO_ROBIN_MELEE",
+                "HERO_ROBIN_DEATHBREATH"
+            ]
+        },
+        "HERO_DEV00":{
+            "name": "DEVHERO_00",
+
+            "image":{
+                "name": "jester",
+                "file": "content/images/characters/jester01.png",
+                "width": 640,
+                "height": 32,
+                "spritesheet": 32,
+
+                "animation":{
+                    "speed": 0.3,
+                    "maxFrames": 32
+                }
+            },
+
+            "maxHealth": 100,
+            "maxResource": 100,
+            "regenerationSpeed": 5,
+            "moveSpeed": 100,
+            "moveRange": 4,
+
+            "discipline": "DISCIPLINE_TRICKS",
+
+            "default_deck": [
+                "CARD_MOVE",
+                "HERO_ROBIN_RANGED",
+                "HERO_ROBIN_RANGED2",
+                "HERO_ROBIN_MELEE",
+                "HERO_ROBIN_RANGED",
+                "HERO_ROBIN_RANGED2",
+                "HERO_ROBIN_MELEE",
+                "HERO_ROBIN_DEATHBREATH"
+            ]
+        }
+    }
+}

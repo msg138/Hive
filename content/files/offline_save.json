@@ -1,0 +1,26 @@
+{
+    "userinfo":{
+        "account":{
+            "username":"default_user", 
+            "fullname":"NIL NAME", 
+            "lastLogin":"08102017"
+        }
+    },
+    "levelProgress":{
+        "lastLevel": 0, 
+        "levelStars":{
+            "0": 2,
+            "1": 0,
+            "2": 0,
+            "3": 0
+        }
+    },
+    "deck":{
+        "unlocked": [
+            "CARD_SWEEP",
+            "CARD_DEMOLISH",
+            "CARD_ROLLDIE",
+            "CARD_FLIPCOIN"
+        ]
+    }
+}

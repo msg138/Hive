@@ -1,0 +1,12 @@
+/Files
+IMAGE|activehotbar.png|activehotbar
+IMAGE|alphabet.png|alphabet
+IMAGE|crosshair.png|crosshair
+IMAGE|hotbarslot.png|hotbar
+IMAGE|flame.png|fire
+IMAGE|destroyplacetool.png|pickaxe
+IMAGE|eyedroptool.png|eyedropper
+IMAGE|newfile.png|newfile
+IMAGE|painttool.png|paintbukket
+IMAGE|savedisk.png|savedisk
+IMAGE|screenshottool.png|screenshot

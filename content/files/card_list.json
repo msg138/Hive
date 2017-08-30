@@ -1,0 +1,139 @@
+{
+    "CARD_EXAMPLE":{
+        "name": "Card Example",
+        "description": "HardCode is defaulted to false.Hardcode determines if the ability is hardcoded into the game., function is what function is to be called to construct the card, exp is how much experience the card attributes to the deck",
+        "hardcode": true,
+        "function": "cardExampleFunction",
+        "params": [],
+        "hero": "HeroName",
+        "herolock": false,
+        "exp": 10 ,
+        "override": false,
+        "OVR_castingCost": -1,
+        "OVR_castingTime": -1,
+        "OVR_castSpeed": -1,
+        "OVR_cooldown": -1,
+        "OVR_castingRange": -1,
+        "OVR_imageName": -1,
+        "OVR_discipline": -1
+    },
+    "CARD_HEROSELECT":{
+        "name": "Select Hero",
+        "description": "Select this hero to play as.",
+        "hardcode": true,
+        "function": "CardHeroSelect",
+        "params": ["&VAR_HERO", "&VAR_QUEST"],
+        "hero": "",
+        "herolock": true,
+        "exp": 0
+    },
+    "CARD_INFORMATION":{
+        "name": "Information",
+        "description": "Displays information relating to the hero.",
+        "hardcode": true,
+        "function": "CardInformation",
+        "params": ["&VAR_HERO", "&VAR_0", "&VAR_1", "&VAR_2"],
+        "hero": "",
+        "herolock": true,
+        "exp": 0
+    },
+    "CARD_FORFEIT":{
+        "name": "Forfeit",
+        "description": "Forfeit the match, defaulting in loss.",
+        "function": "CardForfeit",
+        "params": [],
+        "hero": "",
+        "herolock": false,
+        "exp": 0
+    },
+    "CARD_MOVE":{
+        "name": "Move",
+        "description": "Move to another spot on the battlefield.",
+        "function": "CardMove",
+        "params": [5],
+        "hero": "",
+        "herolock": false,
+        "exp": 0 
+    },
+    "HERO_ROBIN_RANGED":{
+        "name": "Ranged Attack",
+        "description": "Attack from afar, but the closer you are, the higher the critical hit chance.",
+        "function": "CardRangeAttack",
+        "params": [10, 13],
+        "hero": "Robin",
+        "herolock": true,
+        "exp": 0
+    },
+    "HERO_ROBIN_RANGED2":{
+        "name": "Charged Ranged Attack",
+        "description": "Attack from afar, but the closer you are, the higher the critical hit chance.",
+        "function": "CardRangeAttack",
+        "params": [30, 10],
+        "hero": "Robin",
+        "herolock": true,
+        "exp": 0
+    },
+    "HERO_ROBIN_MELEE":{
+        "name": "Melee Attack",
+        "description": "Attack from close up, but does not deal as much damage.",
+        "function": "CardMeleeAttack",
+        "params": [0, 0],
+        "hero": "Robin",
+        "herolock": true,
+        "exp": 0
+    },
+    "HERO_ROBIN_DEATHBREATH":{
+        "name": "Death Breath",
+        "description": "Call upon the spirits to breath chilling air onto an opponent.",
+        "function": "CardDeathBreath",
+        "params": [34],
+        "hero": "Robin",
+        "herolock": true,
+        "exp": 0
+    },
+
+    "CARD_SWEEP":{
+        "name": "Sweep",
+        "description": "Sweep your enemies into the trash.",
+        "function": "CardRangeAttack",
+        "params": [10, 10],
+        "hero":"",
+        "herolock":false,
+        "exp": 10,
+        "OVR_discipline": "DISCIPLINE_ACROBATICS",
+        "override": true
+    },
+    "CARD_DEMOLISH":{
+        "name": "Demolish",
+        "description": "Charge at your enemies, dealing damage to them, but also taking some damage upon impact.",
+        "function": "CardRangeAttack",
+        "params": [10, 10],
+        "hero":"",
+        "herolock":false,
+        "exp": 10,
+        "OVR_discipline": "DISCIPLINE_ACROBATICS",
+        "override": true
+    },
+    "CARD_ROLLDIE":{
+        "name": "Roll A Die",
+        "description": "Roll A Die",
+        "function": "CardRangeAttack",
+        "params": [10, 10],
+        "hero":"",
+        "herolock":false,
+        "exp": 10,
+        "OVR_discipline": "DISCIPLINE_ACROBATICS",
+        "override": true
+    },
+    "CARD_FLIPCOIN":{
+        "name": "Flip A Coin",
+        "description": "Flip A Coin",
+        "function": "CardRangeAttack",
+        "params": [10, 10],
+        "hero":"",
+        "herolock":false,
+        "exp": 10,
+        "OVR_discipline": "DISCIPLINE_ACROBATICS",
+        "override": true
+    }
+}
