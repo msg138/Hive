@@ -2,13 +2,10 @@ TODO List
 ============
 # Prototype Todo List
 ## Working On Currently
-- Basic Hero with 'Deck' that pertains to that hero.
-- Adding wild cards to the hero's 'Deck'
 - Spawning positions on the map
 - flesh out some stuff.
-- Tutorial explaining how to play.
-- Tutorial option in main menu.
 - Quest scenarios, allow a map and enemies to be bound to a quest.
+- Animations for the Jester and ability animations to make the hero look presentable
 
 ## To Work On
 - Win Condition
@@ -46,3 +43,7 @@ TODO List
 - Added a basic attack card that deals X damage 11.1.2016 10.28
 - Fixed cards not being reset and being cast the same as last turn 11.1.2016 10.34
 - When a hero dies, they are now moved to -1, -1 and are removed from the game 11.1.2016 10.42
+- Basic Hero with 'Deck' that pertains to that hero. 8.31.2017 9.09
+- Adding wild cards to the hero's 'Deck' 8.31.2017 9.09
+- Tutorial explaining how to play. 8.31.2017 9.09
+- Tutorial option in main menu. 8.31.2017 9.09
